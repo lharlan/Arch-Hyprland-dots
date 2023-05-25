@@ -1,0 +1,148 @@
+{
+	"layer": "top",
+	"potition": "top",
+	"height": 30,
+	"modules-left": ["wlr/workspaces", "hyprland/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["idle_inhibitor", "battery", "pulseaudio#input", "pulseaudio#output", "backlight", "memory", "temperature", "tray", "custom/logout"],
+
+	// Left Modules
+
+	"wlr/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"on-click": "activate",
+		"separate-outputs": false,
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": [],
+			"9": [],
+			"10": []
+       }
+	},
+
+	"hyprland/window": {
+		"format": "| {}",
+		"rewrite": {
+			"(.*) — Mozilla Firefox": "󰈹 Firefox",
+			"(.*)Mozilla Firefox": "󰈹 Firefox",
+		}
+	},
+
+	// Center Modules
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%H:%M:%S | %e %B %Y}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	},
+
+	// Right Modules
+
+    "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons":{
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon} ⚡{capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon} ",
+        "format-icons": ["", "", "", "", ""]
+    },
+	
+    "pulseaudio#output": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "󰋋 ",
+            "hands-free": "וֹ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+    },
+
+    "pulseaudio#input": {
+        "format": "{format_source}",
+        "format-source": "󰍬{volume}%",
+        "format-source-muted": "󰍭",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
+    },
+
+    "backlight" :{
+         "format": "󰃠 {percent}%",
+         "on-scroll-down": "brightnessctl -c backlight set 1%-",
+         "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": " {}%", // Icon: memory
+        "on-click": "kitty -e 'btop'", 
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+	"temperature": {
+		"interval": 5,
+		"thermal-zone": 2,
+		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+		"critical-threshold": 75,
+		"format": "{temperatureC}°C",
+		"format-critical": "{temperatureC}°C",
+		"format-alt": "{temperatureF}°F",
+	},
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-alt": "󰤨 {essid}",
+        "format-ethernet": "󱘖 Wired",
+        "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-linked": "󱘖 {ifname} (No IP)",
+        "format-disconnected": " Disconnected",
+        "format-wifi": "󰤨 {signalStrength}%",
+        "interval": 5,
+		"on-click": "kitty -e 'nmtui'"
+    },
+
+	"tray": {
+		"spacing": 4,
+	},
+
+    "custom/logout": {
+        "format": "{icon} ",
+        "on-click": "wlogout",
+        "format-icons": "⏻",
+        "tooltip": false
+      },
+
+}

@@ -1,0 +1,31 @@
+* {
+	border-radius: 3px;
+	border: none;
+}
+
+window {
+	font-size: 16px;
+	font-family: CaskaydiaCove Nerd Font Mono;
+	background-color: #2e3440;
+	color: #d8dee9;
+	border-bottom: 3px solid #2e3440;
+}
+
+#entry {
+	padding: 0.25em;
+}
+
+#entry:selected {
+	background-color: #5e81ac;
+	background: linear-gradient(90deg, #88c0d0, #5e81ac);
+}
+
+#text:selected {
+	color: #2e3440;
+}
+
+#input {
+	background-color: #2e3440;
+	color: #d8dee9;
+	padding: 0.25em;
+}

@@ -1,0 +1,115 @@
+* {
+	font-family: "CaskaydiaCove Nerd Font";
+	font-size: 13px;
+}
+
+window#waybar {
+	background: #2e3440;
+}
+
+/* Groups */
+
+.modules-left, .modules-center, .modules-right {
+}
+
+
+/* Label Customization */
+
+label, button {
+	padding: 0 5px;
+}
+
+button label {
+	border: none;
+	background: transparent;
+	padding: 0;
+}
+
+tooltip {
+	background: #2e3440;
+	border: 2px solid #4c566a;
+}
+
+tooltip label {
+	color: #e5e9f0;
+	text-shadow: none;
+	border: none;
+}
+
+/* Module Customization */
+
+#workspaces {
+	background: transparent;
+}
+
+#workspaces button {
+	color: #d8dee9;
+	margin: 0;
+	padding: 0 0px;
+}
+
+#workspaces button.active {
+	color: #81a1c1;
+}
+
+#window {
+	color: #e5e9f0;
+}
+
+#clock {
+	color: #a3be8c;
+}
+
+#idle_inhibitor {
+	color: #d8dee9;
+}
+
+#battery {
+	color: #5e81ac;
+}
+
+#pulseaudio.output {
+	color: #d08770;
+}
+
+#pulseaudio.output.muted {
+	color: #bf616a;
+}
+
+
+#pulseaudio.input {
+	color: #d08770;
+}
+
+#pulseaudio.input.muted {
+	color: #bf616a;
+}
+
+#backlight {
+	color: #ebcb8b;
+}
+
+#memory {
+	color: #b48ead;
+}
+
+#temperature {
+	color: #8fbcbb;
+}
+
+#temperature.critical {
+	color: #bf616a;
+}
+
+#network {
+	color: #81a1c1;
+}
+
+#tray {
+	color: #eceff4;
+}
+
+#custom-logout {
+	color: #eceff4;
+	font-size: 12px;
+}

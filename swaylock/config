@@ -1,0 +1,20 @@
+ignore-empty-password
+font="CaskaydiaCove Nerd Font"
+
+clock
+timestr=%H:%M:%S
+datestr=%e %B %Y
+
+screenshot
+
+fade-in=0.5
+
+effect-blur=20x2
+#effect-greyscale
+effect-scale=0.3
+
+indicator
+indicator-radius=190
+indicator-thickness=10
+indicator-caps-lock
+ring-color=4c566a
