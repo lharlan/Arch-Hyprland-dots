@@ -5,13 +5,6 @@
     "keybind" : "l",
 }
 {
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h",
-
-}
-{
     "label" : "logout",
     "action" : "loginctl kill-session $XDG_SESSION_ID",
     "text" : "Logout",
@@ -27,7 +20,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
+    "action" : "swaylock; systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u",
 

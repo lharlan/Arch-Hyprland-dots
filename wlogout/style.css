@@ -1,6 +1,6 @@
 * {
 	background-image: none;
-  font-family: "Cantarell"
+  font-family: "CaskaydiaCove Nerd Font"
 }
 window {
 	background-color: rgba(12, 12, 12, 0.9);
@@ -16,7 +16,7 @@ button {
 }
 
 button:focus, button:active, button:hover {
-	background-color: #5e81ac;
+	background-color: #434c5e;
 	outline-style: none;
 }
 
