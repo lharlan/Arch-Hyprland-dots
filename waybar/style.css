@@ -4,8 +4,8 @@
 }
 
 window#waybar {
-	/* background: #2e3440; */
-	background: transparent;
+	background: rgba(46, 52, 64, 0.8);
+	/* background: transparent; */
 	min-height: 0;
 }
 
@@ -14,7 +14,7 @@ window#waybar {
 .modules-left, .modules-center, .modules-right {
 	border: none;
 	border-radius: 7px;
-	background: rgba(46, 52, 64, 0.8);
+	background: #2e3440;
 }
 
 
