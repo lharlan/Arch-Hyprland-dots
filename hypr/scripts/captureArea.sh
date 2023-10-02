@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
-grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screencaps/$(date +'%s_grim.png')
+grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screencaps/$(date +'%s_grim.png') | wl-copy

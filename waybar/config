@@ -2,75 +2,74 @@
 	"layer": "top",
 	"potition": "top",
 	"height": 30,
-	"modules-left": ["wlr/workspaces", "hyprland/window"],
+	"modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "battery", "pulseaudio#input", "pulseaudio#output", "backlight", "memory", "temperature", "tray", "custom/logout"],
+	"modules-right": ["battery", "backlight", "pulseaudio#input", "pulseaudio#output", "cpu", "memory", "temperature", "tray", "idle_inhibitor", "custom/logout"],
 
 	// Left Modules
 
-	"wlr/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
 		"on-click": "activate",
 		"separate-outputs": false,
-		"persistent_workspaces": {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": [],
-			"5": [],
-			"6": [],
-			"7": [],
-			"8": [],
-			"9": [],
-			"10": []
-       }
+	},
+
+	"custom/spacer":{
+		"format": "//",
 	},
 
 	"hyprland/window": {
-		"format": "| {}",
+		"max-length": 100,
+		"format": "{}",
 		"rewrite": {
 			"(.*) — Mozilla Firefox": "󰈹 Firefox",
 			"(.*)Mozilla Firefox": "󰈹 Firefox",
-		}
+			"(.*) - Discord": "󰙯 Discord",
+			"(.*) - Thunar": "󰉋 Thunar",
+			"(.*)~": "  $1",
+			"(.*?)PPSSPP v": " $1",
+			"(.*?) - academic use": "󰿉 MATLAB"
+		},
 	},
 
 	// Center Modules
 
 	"clock": {
 		"interval": 1,
-		"format": "{:%H:%M:%S | %e %B %Y}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%H:%M:%S // %d %B %Y}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	},
 
 	// Right Modules
 
     "idle_inhibitor": {
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons":{
-            "activated": "",
-            "deactivated": ""
+            "activated": "󱎴",
+            "deactivated": "󰍹"
         }
     },
 
     "battery": {
+		"interval": 1,
         "states": {
             "warning": 20,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}{capacity}%",
         "format-charging": "{icon}󱐋{capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon} ",
+        "format-alt": "{time} {icon}",
         "format-icons": ["󱃍 ", "󰁼", "󰁾", "󰂀", "󰁹"]
     },
 	
     "pulseaudio#output": {
-        "scroll-step": 5, // %, can be a float
+		"ignored-sinks": ["Easy Effects Sink"],
+        "scroll-step": 2,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
-        "format-muted": "",
+        "format-muted": "󰖁",
         "format-icons": {
             "headphone": "󰋋 ",
             "hands-free": "וֹ",
@@ -78,7 +77,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": [""]
+            "default": ["󰕾"]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol",
@@ -87,24 +86,35 @@
     },
 
     "pulseaudio#input": {
+		"ignored-sinks": ["Easy Effects Sink"],
         "format": "{format_source}",
         "format-source": "󰍬{volume}%",
         "format-source-muted": "󰍭",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-click-right": "pavucontrol",
-        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +2%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -2%"
     },
 
     "backlight" :{
          "format": "󰃠 {percent}%",
-         "on-scroll-down": "brightnessctl -c backlight set 1%-",
-         "on-scroll-up": "brightnessctl -c backlight set +1%"
+         "on-scroll-down": "brightnessctl -c backlight set 5%-",
+         "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": " {max_frequency}GHz",
+        "states": {
+            "warning": 70,
+            "critical": 90,
+        },
+        "on-click": "kitty -e 'btop'",
     },
 
     "memory": {
         "interval": 5,
-        "format": " {}%", // Icon: memory
+        "format": " {}%",
         "on-click": "kitty -e 'btop'", 
         "states": {
             "warning": 70,
@@ -135,6 +145,7 @@
     },
 
 	"tray": {
+		"icon-size": 14,
 		"spacing": 4,
 	},
 

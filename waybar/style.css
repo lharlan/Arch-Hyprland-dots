@@ -1,10 +1,11 @@
 * {
 	font-family: "CaskaydiaCove Nerd Font";
+	/* font-family: "JetBrainsMono-Regular"; */
 	font-size: 13px;
 }
 
 window#waybar {
-	background: rgba(46, 52, 64, 0.8);
+	background: #0C0E0F;
 	/* background: transparent; */
 	min-height: 0;
 }
@@ -14,9 +15,8 @@ window#waybar {
 .modules-left, .modules-center, .modules-right {
 	border: none;
 	border-radius: 7px;
-	background: #2e3440;
+	background: #0C0E0F;
 }
-
 
 /* Label Customization */
 
@@ -31,12 +31,12 @@ button label {
 }
 
 tooltip {
-	background: #2e3440;
-	border: 2px solid #4c566a;
+	background: #0F1011;
+	border: 2px solid #F9FAF6;
 }
 
 tooltip label {
-	color: #e5e9f0;
+	color: #F9FAF6;
 	text-shadow: none;
 	border: none;
 }
@@ -44,77 +44,97 @@ tooltip label {
 /* Module Customization */
 
 #workspaces {
-	background: transparent;
+	/* background: transparent; */
 }
 
 #workspaces button {
-	color: #d8dee9;
+	color: #F9FAF6;
 	margin: 0;
 	padding: 0 0px;
 }
 
 #workspaces button.active {
-	color: #81a1c1;
+	color: #76BBCA;
+}
+
+#custom-spacer {
+	color: #F9FAF6;
 }
 
 #window {
-	color: #e5e9f0;
+	color: #F9FAF6;
 }
 
 #clock {
-	color: #a3be8c;
+	color: #F9FAF6;
 }
 
 #idle_inhibitor {
-	color: #d8dee9;
+	margin-top: 1px;
+	margin-right: 1px;
+	color: #F9FAF6;
 }
 
 #battery {
-	color: #5e81ac;
+	color: #F9FAF6;
+}
+
+#battery.warning {
+	color: #E8B32A;
+}
+
+#battery.critical {
+	color: #CE3E60;
 }
 
 #pulseaudio.output {
-	color: #d08770;
+	color: #F9FAF6;
 }
 
 #pulseaudio.output.muted {
-	color: #bf616a;
+	color: #D18EA6;
 }
 
 
 #pulseaudio.input {
-	color: #d08770;
+	color: #F9FAF6;
 }
 
-#pulseaudio.input.muted {
-	color: #bf616a;
+#pulseaudio.input.source-muted {
+	color: #D18EA6;
 }
 
 #backlight {
-	color: #ebcb8b;
+	color: #F9FAF6;
+}
+
+#cpu {
+	color: #F9FAF6;
 }
 
 #memory {
-	color: #b48ead;
+	color: #F9FAF6;
 }
 
 #temperature {
-	color: #8fbcbb;
+	color: #F9FAF6;
 }
 
 #temperature.critical {
-	color: #bf616a;
+	color: #CE3E60;
 }
 
 #network {
-	color: #81a1c1;
+	color: #F9FAF6;
 }
 
 #tray {
-	color: #eceff4;
+	margin-left: 1px;
+	color: #F9FAF6;
 }
 
 #custom-logout {
-	color: #eceff4;
+	color: #F9FAF6;
 	font-size: 12px;
+
 }

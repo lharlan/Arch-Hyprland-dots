@@ -1,2 +1,4 @@
 killall waybar
-waybar & disown
+waybar
+killall hyprpaper
+hyprpaper
