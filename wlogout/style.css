@@ -1,6 +1,7 @@
 * {
 	background-image: none;
-  font-family: "CaskaydiaCove Nerd Font"
+  font-family: "CaskaydiaCove Nerd Font";
+  font-size: 15;
 }
 window {
   background-color: transparent;
@@ -30,7 +31,7 @@ button:hover#lock {
   background-color: #135879;
   background-size: 25%;
   margin-right: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -39,7 +40,7 @@ button:hover#lock {
 button:hover#logout {
   background-color: #135879;
   background-size: 25%;
-  margin: 0px 30px 30px 30px;
+  margin: 0px 30px 30px 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -48,7 +49,7 @@ button:hover#logout {
 button:hover#suspend {
   background-color: #135879;
   background-size: 25%;
-  margin: 0px 0px 30px 30px;
+  margin: 0px 0px 30px 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -57,7 +58,7 @@ button:hover#suspend {
 button:hover#hibernate {
   background-color: #135879;
   background-size: 25%;
-  margin: 30px 30px 0px 0px;
+  margin: 30px 30px 0px 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -66,7 +67,7 @@ button:hover#hibernate {
 button:hover#shutdown {
   background-color: #135879;
   background-size: 25%;
-  margin: 30px 30px 0 30px;
+  margin: 30px 30px 0 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -77,6 +78,7 @@ button:hover#reboot {
   background-size: 25%;
   margin-left: 30px;
   margin-top: 30px;
+  margin-bottom: 40px;
   border-radius: 20px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
