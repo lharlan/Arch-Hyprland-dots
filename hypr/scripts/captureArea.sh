@@ -1,3 +1,6 @@
 #!/bin/bash
 
-grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screencaps/$(date +'%s_grim.png') | wl-copy
+FILE=$(xdg-user-dir PICTURES)/Screencaps/$(date +'%s_grim.png')
+
+slurp | grim -g - $FILE
+wl-copy -t image/png < $FILE
