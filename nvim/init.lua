@@ -69,7 +69,7 @@ end
 
 function lazy.setup(plugins)
   -- You can "comment out" the line below after lazy.nvim is installed
-  -- lazy.install(lazy.path)
+  lazy.install(lazy.path)
 
   vim.opt.rtp:prepend(lazy.path)
   require('lazy').setup(plugins, lazy.opts)
@@ -96,10 +96,10 @@ lazy.setup({
   })
 
 -- LuaLine Setup
-local japanesque = require('lualine.themes.japanesque')
+local endeavour = require('lualine.themes.endeavour')
 require('lualine').setup({
 	options = { 
-		theme = 'japanesque',
+		theme = 'endeavour',
 		icons_enabled = true,
 	},
 })
