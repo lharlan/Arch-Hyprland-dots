@@ -5,7 +5,6 @@
 	"modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
 	"modules-center": ["clock"],
 	"modules-right": ["battery", "backlight", "pulseaudio#input", "pulseaudio#output", "cpu", "memory", "temperature", "tray", "idle_inhibitor", "custom/logout"],
-	//"modules-right": ["battery", "backlight", "pulseaudio", "cpu", "memory", "temperature", "tray", "idle_inhibitor", "custom/logout"],
 
 	// Left Modules
 
@@ -26,17 +25,18 @@
 	},
 
 	"hyprland/window": {
-		"max-length": 100,
+		"max-length": 50,
 		"separate-outputs": true,
 		"format": "{}",
 		"rewrite": {
 			"(.*) — Mozilla Firefox": "󰈹 Firefox",
 			"(.*)Mozilla Firefox": "󰈹 Firefox",
 			"(.*) - Discord": "󰙯 Discord",
+			"(.*)Discord(.*)": "󰙯 Discord",
 			"(.*) - Thunar": "󰉋 Thunar",
 			"(.*)~": "  $1",
 			"(.*?)PPSSPP v": " $1",
-			"(.*?) - academic use": "󰿉 MATLAB"
+			"initialTitle<cmus>": "cmus",
 		},
 	},
 
@@ -44,8 +44,9 @@
 
 	"clock": {
 		"interval": 1,
-		"format": "{:%H:%M:%S // %d %B %Y}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		// "format": "{:%H:%M:%S // %d %B %Y}",
+		"format": "{:%H:%M:%S // %a, %B %d}",
+		"tooltip-format": "<tt>{calendar}</tt>",
 	},
 
 	// Right Modules
@@ -53,16 +54,17 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons":{
-            "activated": "󱎴",
-            "deactivated": "󰍹"
+            "activated": "󰈈",
+            "deactivated": "󰈉"
         }
     },
 
     "battery": {
 		"interval": 1,
         "states": {
-            "warning": 20,
-            "critical": 10
+			"good": 95,
+            "warning": 25,
+            "critical": 15
         },
         "format": "{icon}{capacity}%",
         "format-charging": "{icon}󱐋{capacity}%",
@@ -84,6 +86,7 @@
             "phone": "",
             "portable": "",
             "car": "",
+			"speaker": "󰽟",
             "default": ["󰋋"]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -101,29 +104,6 @@
         "on-click-right": "pavucontrol",
     },
 
-    "pulseaudio": {
-        "scroll-step": 3, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        //"format-source": "{volume}% ",
-        //"format-source-muted": "",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-	},
-
     "backlight" :{
          "format": "󰃠 {percent}%",
          "on-scroll-down": "brightnessctl -c backlight set 5%-",
@@ -138,6 +118,7 @@
             "warning": 70,
             "critical": 90,
         },
+		"on-click-right": "kitty -e 'btop'",
         
     },
 
@@ -181,7 +162,8 @@
     "custom/logout": {
         "format": "{icon} ",
         "on-click": "wlogout",
-        "format-icons": "⏻",
+        "format-icons": "",
+		//"format-icons": "󰣇 ",
         "tooltip": false
       },
 

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "/home/lharl/.config/fastfetch/images/endeavour-hollow.png",
+	"width": 30
+  },
+  "modules": [
+	"break",
+    {
+      "type": "custom",
+      //"format": "┌──── \u001B[1mToo lazy to install real arch lol\u001B[0m ────┐"
+	  "format": "┌──────────────────────────────────────────┐"
+    },
+    "break",
+    {
+        "type": "os",
+        "format": "  EndeavourOS"
+    },
+	"kernel",
+    "wm",
+	{
+		"type": "cpu",
+		"format": "Ryzen 5 2500U"
+	},
+	{
+		"type": "gpu",
+		"format": "Radeon Vega 8"
+	},
+    "vulkan",
+    "memory",
+	"swap",
+	"battery",
+	"break",
+    {
+      "type": "custom",
+      //"format": "└───────── \u001B[1mStill looks cool tho \u001B[0m────────────┘"
+	  "format": "└──────────────────────────────────────────┘"
+    },
+    "break",
+    "colors"
+  ]
+}

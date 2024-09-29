@@ -1,0 +1,157 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/images/zen2.png",
+		//"source": "~/.config/fastfetch/images/tamako.png",
+        "type": "auto",
+        "height": 15,
+        "width": 30,
+        "padding": {
+            "top": 5,
+            "left": 3
+        }
+    },
+    "modules": [
+        "break",
+
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+        },
+        {
+            "type": "host",
+            "key": "  PC     ",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": " │ ├ CPU  ",
+			"format": "Ryzen 5 2500U",
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": " │ ├ GPU  ",
+			"format": "Radeon Vega 8",
+            "keyColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": " │ ├ RAM  ",
+            "keyColor": "green"
+        },
+        {
+            "type": "swap",
+            "key": " │ ├ SWAP ",
+            "keyColor": "green"
+        },
+		{
+			"type": "battery",
+			"key": " └ └ BATT ",
+			"keyColor": "green"
+		},
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+
+        "break",
+
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+        },
+        {
+            "type": "os",
+            "key": "  OS       ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": " │ ├ KERNEL ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "vulkan",
+            "key": " │ ├ VULKAN ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "shell",
+            "key": " └ └ SHELL  ",
+            "keyColor": "yellow"
+        },
+
+        "break",
+
+        {
+            "type": "wm",
+            "key": "  WM       ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "terminal",
+            "key": " └ └ TERM   ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+
+        "break",
+
+		{
+			"type": "custom",
+			"format": "\u001b[90m┌──────────────────────Storage───────────────────────┐"
+		},
+		{
+			"type": "disk",
+			"key": "  SSD  ",
+			"format": "{size-used} / {size-total} [{size-percentage}]",
+			"folders": "/",
+			"keyColor": "red"
+		},
+		{
+			"type": "disk",
+			"key": "  HDD  ",
+			"format": "{size-used} / {size-total} [{size-percentage}]",
+			"folders": "/home/lharl/HDD",
+			"keyColor": "red"
+		},
+		{
+			"type": "disk",
+			"key": "  NVME ",
+			"format": "{size-used} / {size-total} [{size-percentage}]",
+			"folders": "/home/lharl/Windows",
+			"keyColor": "red"
+		},
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+
+		"break",
+
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌────────────────────Uptime / Age────────────────────┐"
+        },
+        {
+            "type": "command",
+            "key": "  OS Age ",
+            "keyColor": "magenta",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "type": "uptime",
+            "key": "  Uptime ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+        },
+        "break",
+    ]
+}

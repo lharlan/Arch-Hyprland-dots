@@ -2,7 +2,7 @@
 
 audioOutput=$(/usr/bin/pactl get-default-sink)
 
-barracudaX="alsa_output.usb-Macronix_Razer_Barracuda_X_2.4_1234-00.analog-stereo"
+barracudaX="alsa_output.usb-Macronix_Razer_Barracuda_X_2.4_1234-00.iec958-stereo"
 headphoneJack="alsa_output.pci-0000_05_00.6.analog-stereo"
 
 if echo $audioOutput | grep -q "Barracuda_X"; then

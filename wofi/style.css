@@ -1,32 +1,30 @@
-* {
-	border-radius: 3px;
-	border: none;
-}
-
 window {
-	font-size: 14px;
-	font-family: CaskaydiaCove Nerd Font Mono;
+	font-size: 12px;
+	font-family: CaskaydiaCove Nerd Font;
 	background-color: #0C0E0F;
 	color: #d8dee9;
-	border-bottom: 3px solid #0F1011;
+}
+
+#text {
+	margin-left: 6px;
 }
 
 #entry {
-	padding: 0.25em;
+	margin-left: 6px;
 }
 
 #entry:selected {
-	/background-color: #5e81ac;
+	background-color: #5e81ac;
 	background: linear-gradient(90deg, #585A58, #343835);
+	margin-left: 6px;
 	/* background: #4C99D3; */
 }
 
 #text:selected {
-	color: #0F1011;
+	color: #0C0E0F;
 }
 
 #input {
-	background-color: #0F1011;
+	background-color: #0C0E0F;
 	color: #d8dee9;
-	padding: 0.25em;
 }

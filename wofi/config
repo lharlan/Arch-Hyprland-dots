@@ -1,4 +1,8 @@
 mode=drun
 allow_images=true
 image_size=20
-lines=8
+height=100%
+xoffset=0
+yoffset=-30
+layer=overlay
+hide_scroll=true

@@ -1,0 +1,32 @@
+q
+clear
+add ~/HDD/Music
+live-filter 
+update-cache -f
+refresh-cache -f
+set ignore_duplicates=true
+colorscheme japanesque
+colorscheme default
+colorscheme gruvbox-warm
+colorscheme gruvbox-alt
+colorscheme gruvbox
+update-cache
+quit
+filter 
+Q
+pl-create TheBest
+add ~/HDD/Music/
+colorscheme cyan
+colorscheme zenburn
+colorscheme xterm-white
+colorscheme night
+colorscheme jellybeans
+colorscheme green-mono-88
+colorscheme green
+colorscheme gray-88
+colorscheme dracula
+colorscheme amazon
+colorscheme spotify
+set aaa_mode=album
+set show_current_bitrate=true
+filter f

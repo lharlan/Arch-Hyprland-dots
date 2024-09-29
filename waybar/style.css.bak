@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-	/* background: #0C0E0F; */
-	background: transparent;
+	background: #0C0E0F;
+	/* background: transparent; */
 	min-height: 0;
 }
 
@@ -14,24 +14,14 @@ window#waybar {
 
 .modules-left, .modules-center, .modules-right {
 	border: none;
-	border-radius: 4px;
+	border-radius: 7px;
 	background: #0C0E0F;
-	/*background: #161616;*/
-	margin-top: 3px;
-}
-
-.modules-left {
-	margin-left: 3px;
-}
-
-.modules-right {
-	margin-right: 3px;
 }
 
 /* Label Customization */
 
 label, button {
-	padding: 0 4px;
+	padding: 0 5px;
 }
 
 button label {
@@ -41,9 +31,8 @@ button label {
 }
 
 tooltip {
-	background: #0C0E0F;
+	background: #0F1011;
 	border: 2px solid #F9FAF6;
-	border-radius: 7px;
 }
 
 tooltip label {
@@ -65,7 +54,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-	color: #7F7FFF;
+	color: #76BBCA;
 }
 
 #custom-spacer {
@@ -83,15 +72,10 @@ tooltip label {
 #idle_inhibitor {
 	margin-top: 1px;
 	margin-right: 1px;
-	font-size: 13px;
 	color: #F9FAF6;
 }
 
 #battery {
-	color: #47B35D;
-}
-
-#battery.good {
 	color: #F9FAF6;
 }
 
@@ -100,7 +84,7 @@ tooltip label {
 }
 
 #battery.critical {
-	color: #FF7F7F;
+	color: #CE3E60;
 }
 
 #pulseaudio.output {
@@ -108,7 +92,7 @@ tooltip label {
 }
 
 #pulseaudio.output.muted {
-	color: #FF7F7F;
+	color: #D18EA6;
 }
 
 
@@ -117,7 +101,7 @@ tooltip label {
 }
 
 #pulseaudio.input.source-muted {
-	color: #FF7F7F;
+	color: #D18EA6;
 }
 
 #backlight {
@@ -152,6 +136,5 @@ tooltip label {
 #custom-logout {
 	color: #F9FAF6;
 	font-size: 12px;
-	margin-right: 1px;
 
 }

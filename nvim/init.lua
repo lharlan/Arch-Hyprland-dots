@@ -7,7 +7,6 @@ vim.wo.number = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.mouse = 'a'
 vim.opt.swapfile = false
--- vim.opt.colorcolumn = "80"
 vim.o.filetype = 'on'
 vim.opt.ignorecase = true
 vim.opt.hlsearch = false
@@ -47,7 +46,7 @@ vim.keymap.set('n', '<leader>do', ':Dashboard<CR>')
 
 -- Tabline keybinds
 vim.keymap.set('n', '<leader>l', ':TablineBufferNext<CR>')
-vim.keymap.set('n', '<leader>k', ':TablineBufferPrevious<CR>')
+vim.keymap.set('n', '<leader>h', ':TablineBufferPrevious<CR>')
 vim.keymap.set('n', '<leader>bd', ':bd<CR>')
 
 -- Lazy Installation
@@ -69,7 +68,7 @@ end
 
 function lazy.setup(plugins)
   -- You can "comment out" the line below after lazy.nvim is installed
-  lazy.install(lazy.path)
+  -- lazy.install(lazy.path)
 
   vim.opt.rtp:prepend(lazy.path)
   require('lazy').setup(plugins, lazy.opts)
@@ -79,21 +78,32 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  {'nvim-lualine/lualine.nvim'},
+  {'nvim-lualine/lualine.nvim', dependencies = {{'nvim-tree/nvim-web-devicons'}}},
   {'nvim-tree/nvim-tree.lua'},
   {'kdheepak/tabline.nvim'},
   {'nvim-treesitter/nvim-treesitter'},
   {'glepnir/dashboard-nvim', dependencies = {{'nvim-tree/nvim-web-devicons'}}},
   {'nvim-telescope/telescope.nvim', dependencies = {{'nvim-lua/plenary.nvim'}}},
   {'jiangmiao/auto-pairs'},
-  {'stevearc/vim-arduino'},
-  {
-  "m4xshen/smartcolumn.nvim",
-  opts = {
-	disabled_filetypes = { "help", "text", "markdown", "dashboard", "lazy" },
-  		}
+  {'m4xshen/smartcolumn.nvim',
+  	opts = {
+		disabled_filetypes = { "help", "text", "markdown", "dashboard", "lazy", ".log" },
+  	}
   },
-  })
+  {'norcalli/nvim-colorizer.lua'},
+  {'navarasu/onedark.nvim'},
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
+})
+
+-- Theme Setup
+require('onedark').setup {
+    style = 'dark',
+	transparent = true,
+}
+require('onedark').load()
+
+-- Colorizer Setup
+require'colorizer'.setup()
 
 -- LuaLine Setup
 local endeavour = require('lualine.themes.endeavour')
@@ -103,8 +113,31 @@ require('lualine').setup({
 		icons_enabled = true,
 	},
 })
-require("nvim-tree").setup()
+
+-- Tree Setup
+require('nvim-tree').setup({
+	hijack_cursor = false,
+ 	renderer = {
+  		special_files = {},
+		symlink_destination = false,
+		indent_markers = {
+    		enable = true,
+  		},
+ 	},
+})
+
+-- Tabline Setup
 require("tabline").setup()
+
+-- Telescope Setup
+local telescope = require('telescope')
+telescope.setup {
+	pickers = {
+		find_files = {
+			hidden = true,
+		}
+	}
+}
 
 -- TreeSitter Setup
 -- local nts = require 'nvim-treesitter'
@@ -125,6 +158,10 @@ db.setup({
   theme = 'doom',
   config = {
     header = {
+	[[                                                                       ]],
+	[[                                                                       ]],
+	[[                                                                       ]],
+	[[                                                                       ]],
 	[[                                                                       ]],
 	[[                                                                       ]],
 	[[                                                                     ]],
@@ -181,20 +218,20 @@ db.setup({
 		    desc = 'Python Files',
 		    key = 'p',
 		    --keymap = 'SPC g 3',
-		    action = 'e /run/media/lharl/HDD/Programming/python_files/'
+		    action = 'e /home/lharl/HDD/Programming/python_files/'
 	    },
 	    {
-		    icon = '󰑴 ',
-		    desc = 'School Fall 2023',
-		    key = 's',
-		    action = 'e /run/media/lharl/HDD/Documents/School/Fall2023/'
+		    icon = '󰠮 ',
+		    desc = 'Notes',
+		    key = 'n',
+		    action = 'e ~/Documents/Notes'
 	    },
-	    {
-	  	  icon = '󰠮 ',
-		    desc = 'Journal',
-		    key = 'j',
-		    action = 'e /run/media/lharl/HDD/Documents/Journal/'
-	    },
+		{
+			icon = ' ',
+			desc = 'Hypr Config',
+			key = 'h',
+			action = 'e ~/.config/hypr/'
+		}
     },
 
     footer = {dbfooter}
@@ -215,3 +252,10 @@ local function arduino_status()
   end
   return line
 end
+
+vim.cmd([[
+    :hi NvimTreeExecFile    gui=bold           guifg=#EEEEEE
+    :hi NvimTreeSymlink     gui=bold           guifg=#ffff60
+    :hi NvimTreeSpecialFile gui=bold,underline guifg=#ff80ff
+    :hi NvimTreeImageFile   gui=bold           guifg=#ff80ff
+]])
