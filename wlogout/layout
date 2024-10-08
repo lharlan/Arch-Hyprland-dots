@@ -6,13 +6,13 @@
 }
 {
     "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "HIBERNATE (H)",
+    "action" : "killall hypridle",
+    "text" : "DISABLE HYPRIDLE (H)",
     "keybind" : "h"
 }
 {
     "label" : "logout",
-    "action" : "hyprctl dispatch exit 1",
+    "action" : "~/.config/hypr/scripts/hyprKill.sh",
     "text" : "LOGOUT (E)",
     "keybind" : "e"
 }
